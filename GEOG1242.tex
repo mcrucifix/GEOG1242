@@ -1,0 +1,848 @@
+ \documentclass[12pt]{report}
+
+ % LAYOUT
+\renewcommand{\baselinestretch}{1.5}
+\textheight22cm
+\textwidth15cm
+\hoffset-20mm
+\voffset-25mm
+\oddsidemargin2.5cm
+\evensidemargin2.5cm
+\usepackage[french]{babel}
+\usepackage{array}
+% TYPING MACROS 
+\def\pa{\partial}    
+\def\sun{\odot}
+% LATEX PACKAGES
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\def\tan{\mathrm{tg}}    
+% SPECIFY PATH FOR GRAPHICS 
+\graphicspath{{Figures/}} 
+% ENCODING AND HYPERTEX
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex,bookmarks=true]{hyperref}
+% OTHER MISCELANEOUS
+\newtheorem{lemma}{Lemme}
+\newtheorem{definition}{Définition}
+\title{Geographie mathématique GEOG1242 }
+\author{Michel Crucifix}
+
+\begin{document}
+ 
+\maketitle
+\tableofcontents
+ \par\noindent
+\chapter{ Rappels des notions de trigonométrie plane}
+ 
+ \par\noindent
+\section{Définition du radian et du degré}
+
+\begin{figure}[h]
+\begin{center}
+\psfig{figure=figure1.pdf}
+\end{center}
+\caption{Le cerlce trigonométrique}
+\label{fig:1}
+\end{figure}
+
+
+
+\underline{Soit}
+
+\begin{itemize}
+\item un cercle de rayon $R$
+\item un angle $\alpha$, exprimé en {\it radians}
+\end{itemize}
+
+
+\textbf{Par définition}: un angle de 1 radian intercepte un arc de longueur égale au rayon = $R$.  Donc : Un angle de $\alpha$ radians intercepte un arc de longueur $\alpha \cdot R$.  
+
+\underline{Un tour complet} représente un angle de $2\pi$ radians (la circonférence = $2\pi R$)
+
+C'est aussi $360^\circ$. On a donc: $2\pi$ radians = $360^\circ$.
+
+\begin{center}
+$\fbox{1 radian = ${180 \over \pi}$ degrés}$
+\end{center}
+
+Le degré se subdivise en minutes (') et secondes (''), telles que 
+\begin{eqnarray*}
+&& 1^{\mbox{'}} = 60^{\mbox{''}}\\
+& & 1^\circ = 60^{\mbox{'}} = 3600^{\mbox{''}}
+\end{eqnarray*}
+
+Le tour complet peut également se subdiviser en 24 heures:
+
+on a: $2\pi=360^\circ=$ 24 heures
+
+\qquad\quad  1 heure = 15$^\circ$
+
+l'heure se divise en minutes (m) et secondes (s) telles que 1 h = 24 m = 3600 s.
+
+
+\underline{exercices}: convertir 1' = ? s
+
+\qquad\qquad\qquad\quad\quad\ \   1'' = ? s \ ?
+
+
+
+\section{Sinus et cosinus}
+
+\begin{figure}[h]
+\begin{center}
+\psfig{figure=figure2.pdf}
+\end{center}
+\caption{Cosinus et sinus sur le cercle trigonmétrique}
+\label{fig:2}
+\end{figure}
+
+ 
+$\begin{array}{llll}
+ \sin^2 \alpha + \cos^2 \alpha = 1\\
+ \sin 0 = 0 \ ; \ \cos 0 = 1 \\
+ \sin {\pi\over 2} = 1 \ ; \ \cos {\pi\over 2} = 0\\
+ \sin {\pi \over 4} = \cos {\pi\over 4} = {\sqrt{2}\over 2}\\
+ \sin {\pi\over 6} = \cos {\pi\over 3} = {1\over 2} \ , \ \sin {\pi\over 3} = \cos {\pi \over 6} = {\sqrt{3}\over 2}
+\end{array}
+$
+
+\bigskip\bigskip
+
+$
+\begin{array}{llll}
+\sin (-a) = -\sin a\\
+\cos (-a) = \cos a
+\end{array}
+$
+
+\bigskip\bigskip
+
+
+$
+\begin{array}{llll}
+\sin (a+b) = \sin a \cos b + \sin b \cos a \\
+\cos (a+b) = \cos a \cos b - \sin a \sin b \\
+\tan a \triangleq \displaystyle {\sin a \over \cos a}
+\end{array}
+$
+
+\bigskip\bigskip\bigskip\bigskip
+
+\underline{exercice}: vérifiez que $\cos (a-a) = 1$.
+
+\bigskip\bigskip
+
+
+
+
+
+\bigskip\bigskip
+
+\par\noindent
+\section{Développements en série (en radians)}
+
+\begin{eqnarray*}
+\sin \alpha &=&  \alpha - {\alpha^3 \over 3!} + {\alpha^5 \over 5!} \qquad  {\stackrel{ \alpha \ll \alpha^3}{\simeq}} \ \ \alpha \\
+\lim_{\alpha \to 0} {\sin \alpha \over \alpha} &=& 1 \\
+\cos \alpha &=& 1 - {\alpha^2\over 2} + {\alpha^4\over 4!} \\
+\end{eqnarray*}
+
+\begin{figure}[h]
+\begin{center}
+\psfig{figure=figure3.pdf}
+\end{center}
+\caption{cercle trigonmétrique pour $\alpha \rightarrow 0$}
+\label{fig:3}
+\end{figure}
+
+si $\alpha$ est un incrément infinitésimal (i.e., si $\alpha=d \varepsilon $), on a
+\[
+\sin d\varepsilon = d \varepsilon. \qquad\qquad (\mbox{parce que} \ \lim_{d \varepsilon \to 0} {\sin d \varepsilon \over d \varepsilon} = 1).
+\]
+
+
+\chapter{{Les coordonnées géographiques}}
+
+\bigskip
+ 
+\section{Le géoïde}  On donne le nom de \textit{\sc Geoïde} à la surface des mers qu'on suppose prolongée sous les continents par un réseau de canaux. Physiquement, il s'agit d'une surface d'égal géopotentiel.
+
+La géoïde est une surface difficile à décrire mathématiquement (patatoïde), mais en bonne approximation, il s'agit d'un {\sc Ellipsoïde applati}, qu'on appelle {\sc Ellipsoïde de Hayford}
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure4.pdf}
+\end{center}
+\caption{Ellipsoïde de référence}
+\label{fig:4}
+\end{figure}
+
+
+\bigskip\bigskip
+
+$\begin{array}{lll}
+a = 6 378 \  388 \ \mbox{m}\\
+b = 6 356 \ 912 \  \mbox{m}
+\end{array}$
+
+\bigskip\bigskip
+
+Le pôle céleste  est la direction de l'axe instantané de rotation terrestre.
+
+\bigskip
+ 
+  \par\noindent
+\section{{La latitude géographique}} 
+La latitude géographique, notée $\varphi$, est l'angle que fait la normale a l'ellipsoïde (c'est à dire, le zénith) avec le plan de l'équateur. La latitude est comptée positiviement dans l'hémisphère Nord.
+
+Nous pouvons remarquer que, par construction, la latitude est également l'angle entre l'horizon et le pôle céleste. Dans l'hémisphère Nord, le pôle céleste correspond approximativement à la direction de l'étoile polaire. 
+
+ 
+\section{La latitude géocentrique} 
+
+La latitude géocentrique ($\varphi'$) est l'angle entre le segement OA (Figure \ref{fig:4}) et l'équateur. 
+Dans l'hémisphère nord, on voit que $\varphi' < \varphi$.
+
+On peut montrer que tg $\varphi' = \displaystyle {b^2\over a^2}$ tg $\varphi$. 
+ 
+ \underline{exercice}: tabuler les valeurs de $\varphi-\varphi'$, pour des latitudes de 0,30$^\circ$, 45$^\circ$, 60$^\circ$, 90$^\circ$.
+ 
+ Pour quelles valeurs $\varphi-\varphi'$ s'annule-t-il? \quad est-il maximum?
+
+\bigskip
+ 
+  \par\noindent
+\section{{La longitude}}
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure5.pdf}
+\end{center}
+\caption{Longitude}
+\label{fig:5}
+\end{figure}
+
+
+
+La longitude géographique d'un point $S$ se définit de la façon suivante. \textbf{Le plan méridien de $S$} est le plan défini par la ligne des pôles et le zénith de $S$. Considérons par ailleurs le méridien passant par l'observatoire de Greenwhich (noté $G$). 
+
+La longitude de $S$ est l'angle $\lambda$ du dièdre formé par ces deux plans, compté positivement si $S$ est à \textbf{l'EST} de G.
+
+
+Le méridien passant par l'observatoire de Greeenwich, également appelé méridien international, a été adopté par la convention de Washington en 1884.
+
+\chapter{Notions de trigonométrie sphérique}
+
+Considérons une sphère de rayon unitaire et de centre $O$. Nous appelerons \textsc{grand cercle} tout cercle de rayon unitaire passant par O.
+
+Soit, $A$, $B$, $C$ trois points de la sphère. Le \textsc{triangle sphérique} est la surface définie sur la sphère par les arcs de grands cercles $a$, $b$, $c$.
+
+On dit donc que $a$, $b$ et $c$ sont les \textbf{côtés} du triangle, et $A$, $B$ et $C$ en sont les \textbf{sommets}.
+
+Par ailleurs, des angles associés à ces sommets se définissent de la façon suivante. \textbf{L'angle $C$}, par exemple, est l'angle du dièdre formé par les plans $Oa$ et $Ob$. Nous allons montrer qu'il existe des relations liant ces différents angles. Ces relations sont les \underline{relations de trigonométrie sphérique}.
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure6.pdf}
+\end{center}
+\caption{Définition du triangle sphérique}
+\label{fig:6}
+\end{figure}
+
+
+\bigskip\bigskip
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure7.pdf}
+\end{center}
+\caption{Triangle sphérique défini dans le repère $\{\vec{e_x},\vec{e_y}, \vec{e_z}\}$.}  
+\label{fig:7}
+\end{figure}
+
+Soit le triangle $ABC$. Alignons un repère orthonormal $\{\vec{e_x},\vec{e_y},\vec{e_z}\}$ sur $B$, telles que les coordonnées  $OB=\vec{e_z}$ et que le côté $C$ soit dans le plan $\{\vec{e_y}, \vec{e_z}\}$
+
+Les coordonnées du point $C$ sont donc:
+\[
+(1) \left\{ \begin{array}{lll} x &=& \sin a \sin B\\
+y &=& \sin a \cos B \\
+z &=& \cos a \end{array}\right. \quad \mbox{ou encore}\ \vec C = x \vec{e_x} + y \vec{e_y} + z \vec{e_z}
+\]
+
+
+Reprenons le même triangle, mais cette fois avec un repère $\{\vec{e_{x'}}, \vec{e_{y'}},\vec{e_{z'}}\}$ aligné sur $A$, toujours tel que $C$ soit compris dans le plan $\{\vec{e_{x'}},\vec{e_{z'}}\}$
+
+
+\bigskip\bigskip
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure8.pdf}
+\end{center}
+\caption{Triangle sphérique défini dans le repère $\{\vec{e'_x},\vec{e'_y}, \vec{e'_z}\}$.}  
+\label{fig:8}
+\end{figure}
+
+
+\bigskip\bigskip
+
+On trouve par un raisonnement analogue que les coordonnées $x',y',z'$ de $C$ sont égales à :
+\[
+(2) \left\{ \begin{array}{lll} x' &=& \sin b \sin A\\
+y' &=& -\sin b \cos A \\
+z' &=& \cos b \end{array}\right. \quad \mbox{ou encore}\ \vec C = x' \vec{e_{x'}} + y' \vec{e_{y'}} + z' \vec{e_{z'}}
+\]
+
+
+
+\bigskip\bigskip
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure9.pdf}
+\end{center}
+\caption{Rotation du repère $\{\vec{e_x},\vec{e_y},\vec{e_x}\}$, autour de l'axe $\vec{e_x}$}
+\label{fig:9}
+\end{figure}
+\bigskip\bigskip
+
+Par ailleurs, remarquons que
+
+\[
+ \left\{ \begin{array}{lll} \vec{e_{x'}} &=& \vec{e_x}\\
+\vec{e_{y'}} &=& \vec{e_y} \cos c - \vec{e_z} \sin c \\
+\vec{e_{z'}}  &=&  \vec{e_y}  \sin c + \vec{e_z} \cos c.\end{array} \right. 
+\]
+
+
+notons que 
+\begin{eqnarray*}
+\vec {OC} &=& x' \vec{e_{x'}} + y' \vec{e_{y'}} + z' \vec{e_{z'}}\\
+&=& \vec{x'e_x} + y' \cdot \{\vec{e_y} \cos c - \vec{e_z} \sin c \} + z' \sin c \vec{e_y} + z' \cos c \vec{e_z} \\
+&=& \underbrace{x'}_x \qquad \vec{e_x} + \underbrace{\{y' \cos c + z' \sin c\}}_y \vec{e_y} + \underbrace{\{z' \cos c - x' \sin c\}}_z \vec {e_z}
+\end{eqnarray*}
+
+
+on a donc $\left\{\begin{array}{lll} x=x'\\ y = y' \cos c + z' \sin c \\
+z = z' \cos c - x' \sin c \end{array}\right.$ 
+\bigskip
+
+et en remplaçant $x,y,z,x',y',z'$ par leurs valeurs dans (1) et (2), on trouve:
+
+\bigskip
+
+$\left\{\begin{array}{lll}
+\sin a \sin B = \sin b \sin A \\
+\sin a \cos B = -\sin b \cos A \cos c + \cos b \sin c \\
+\cos a = \cos b \cos c + \sin b \sin c \cos A
+\end{array}
+\right.
+$
+
+\bigskip\bigskip
+
+Par permutation des lettres, on obtient deux systèmes de relations fondamentales:
+
+\bigskip
+
+
+\bigskip
+
+$I: \left\{ \begin{array}{lll} 
+\sin a \sin B &=&   \sin b \sin A \\
+\sin b \sin C &=&  \sin c \sin   B \\
+\sin c \sin A &=& \sin a \sin C  \end{array} \right. \  \displaystyle \Leftrightarrow \ {\sin a \over \sin A} = {\sin b \over \sin B} = {\sin c \over \sin C}
+$
+
+\bigskip
+
+$II: \left\{ \begin{array}{lll} 
+\cos a &=& \cos b \cos c + \sin b \sin c \cos A \\
+\cos b &=& \cos c \cos a + \sin c \sin a \cos B \\
+\cos c &=& \cos a \cos b + \sin a \sin b \cos C  \end{array} \right.
+$
+
+\bigskip
+Il est possible de créer un troisème système sur base des considérations suivantes. 
+
+À chaque côté (disons: $a$, définit par $BC$), il est possible de faire correspondre un \emph{pôle} $A^\star$. Le pôle est le point de percée de l'axe (passant par le centre de la sphère) orthogonal au grand cercle décrit par $a$. Parmis les deux ôles possibles celui qui est retenu est choisi par application de la règle de la main droite, en allant de $B$ vers $C$. 
+
+\begin{definition}
+Soit un triangle de côtés $a$,$b$,$c$, et de sommets $A$, $B$, $C$, et soit 
+$A^\star$ le pôle de $BC$, 
+$B^\star$ le pôle de $CA$ et
+$C^\star$ le pôle de $AB$.
+
+Le triangle définit par les sommets $A^\star$, $B^\star$, $C^\star$ est appelé le triangle conjugué de $ABC$.
+\end{definition}
+
+\begin{lemma}
+Soit les côtés $a^\star$, $b^\star$, $c^\star$ du triangle $A^\star B^\star C^\star$, conjugé de $ABC$. 
+On a alors les relations suivantes :
+
+\begin{tabular}{m{.4\textwidth} c  m{.4\textwidth}}
+\begin{equation*}
+\left\{ \begin{split}
+ a &=& \pi - A^\star \\
+ b &=& \pi - B^\star \\
+ c &=& \pi - C^\star
+ \end{split}
+ \right. 
+ \end{equation*} & et & 
+\begin{equation}
+\left\{ 
+\begin{split}
+ A &=& \pi - a^\star \\
+ B &=& \pi - b^\star \\
+ C &=& \pi - c^\star
+ \end{split}
+ \right. 
+ \end{equation} \label{eq:conj} \end{tabular}
+\end{lemma}
+
+Ainsi, si on applique le bloc de relations $II$  au triangle $A^\star B^\star C^\star $ et que l'on réexprime
+ensuite en fonction des côtes et sommets du triangle $ABC$ en utilisation les relations
+ci-dessus, on obtient un troisème groupe de relations:
+
+\bigskip
+$III: \left\{ \begin{array}{lll} 
+\cos A &=& \sin B \sin C \cos a- \cos B \cos C \\
+\cos B &=& \sin C \sin A \cos b- \cos C \cos A \\
+\cos C &=& \sin A \sin B \cos c- \cos A \cos B  \end{array} \right.
+$
+
+\bigskip
+
+\chapter{L'orthodromie et la loxodromie}
+
+
+Assimilons le globe terrestre à une sphère.
+Soit $A$ et $B$, deux points à la surface de cette sphère de coordonnées géographiques
+\[
+A:(\varphi_A,\lambda_A) \  \ \mbox{et} \  \ B (\varphi_B, \lambda_B).
+\]
+
+
+\textbf{L'orthodromie} entre A et B est la trajectoire à la surface de la sphère qui joint $A$ à $B$ par le chemin \textbf{le plus court}. On peut se convaincre (mais on peut également démontrer mathématiquement\ldots) qu'il s'agit de l'arc de grand cercle, de centre $O$, passant par $A$ et $B$. Toute autre trajectoire serait plus longue.
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure10.pdf}
+\end{center}
+\caption{L'orthodromie est le côté $c$ joignant $A$ à $B$}
+\label{fig:10}
+\end{figure}
+
+
+
+\underline{La longueur de l'orthodromie} s'obtient par résolution du triangle sphérique défini par les points $A,B$ et $C$ = pôle Nord, et dont les côtés $b={\pi\over 2}-\varphi_A$ et $a={\pi\over 2}-\varphi_B$ sont connus, de même que l'angle $C=\delta \lambda \equiv \lambda_B-\lambda_A$.
+
+La longueur de l'orthodromie vaudra $R\cdot c$, où $R$ est le rayon terrestre. On applique la relation (I.3) pour trouver:
+\[
+\cos c = \sin \varphi_A \sin \varphi_B + \cos \varphi_A \cos \varphi_B \cos \delta \lambda.
+\]
+
+
+\bigskip\bigskip
+
+
+\underline{Exercices}
+
+1) Que vaut l'orthodromie de deux points alignés sur un même méridien? Montrez que $c=\mid \varphi_A - \varphi_B\mid$.
+
+2) Le cap à suivre par un marin suivant l'orthodromie vaut: $2\pi-A$ au départ, et $B$ à l'arrivée. Déterminez $A$ et $B$ en utilisant les relations II.
+
+
+ 
+\section{La loxodromie} 
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure11.pdf}
+\end{center}
+\caption{Element de trajectoire $ds$ de cap $\gamma$}
+\label{fig:11}
+\end{figure}
+
+
+La \textbf{loxodromie} entre deux points est la trajectoire à la surface de la sphère suivie en \textbf{maintenant un angle constant avec le mériodien local} (trajectoire à cap constant). 
+
+Pour calculer la distance et le cap de cette trajectoire, il faut d'abord observer que l'élément de distance $ds$ parcourue à la surface de la sphère lors d'un incrément de longitude $d\lambda$ et de latitude $d\phi$ vaut:
+
+$ds^2=R^2(d\varphi^2+\cos^2\varphi \ d\lambda^2)$
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure12.pdf}
+\end{center}
+\caption{Représentation de l'incrément de latitude $d\phi$}
+\label{fig:12}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure13.pdf}
+\end{center}
+\caption{Parallèle de latitude $\phi$ 'vu du dessus'}
+\label{fig:13}
+\end{figure}
+
+
+Par ailleurs, si $\gamma$ est le cap,
+\begin{eqnarray}
+d\lambda = \ \tan \  \gamma {d\varphi\over \cos \varphi} \label{loxo_1} \\
+ds = R \cdot \sqrt {1+\ \tan^2 \  \gamma} d\varphi  = \frac{R}{\cos\gamma}\,d\varphi \label{loxo_2}
+\end{eqnarray}
+
+\begin{eqnarray}
+\int (\ref{loxo_1}) &\Rightarrow& \delta \lambda = \ \tan \ \gamma \cdot \left[\ln\left (\tan \ ({\pi\over 4} + \frac{\varphi}{2})\right)\right]^B_A \ \\
+\int (\ref{loxo_2}) &\Rightarrow& \delta s = \frac{R}{\cos\gamma}\delta\phi
+\end{eqnarray}
+
+
+\underline{Exercice}: 
+
+Déterminer la loxodromie et l'orthodromie entre Paris et New York, en utilisant les coordonnées suivantes :
+
+Paris : $48^\circ$ 48'N  et $2^\circ20'$E  ; New York : $43^\circ03'$N $77^\circ36'$W
+
+
+\bigskip
+
+\par\noindent
+\chapter{Le mouvement diurne}
+
+\section{La sphère céleste locale} 
+
+Nous définissons \textbf{la sphère céleste locale} une sphère imaginaire, centrée sur l'observateur et dont l'horizon constitute un grand cercle. Le \textbf{zénith} est dans la direction verticale telle que définie par le fil à plomb.
+
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure14.pdf}
+\end{center}
+\caption{Sphère céleste locale}
+\label{fig:14}
+\end{figure}
+
+Le méridien est le grand cercle comprennant les pôles et le zénith. $S$ est l'intersection du méridien avec l'horizon.
+
+\textbf{L'équateur céleste} est le grand cercle qui a pour pôle le pôle céleste. L'axe $OP$ s'appelle l'axe du monde.
+
+
+\section{Les coordonnées azimutales (également appelées horizontales)}
+
+Soit une direction $A$ (par exemple une étoile) représentée par un point sur la sphère céleste locale. Le demi-grand cercle passant par $Z$ (zénith) et $A$ s'appelle le \textbf{cercle vertical} du point $A$. 
+
+La \textbf{distance zénithale} est le côté $ZA$ et l'\textbf{azimut} est le côté $SA'$.
+
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure15.pdf}
+\end{center}
+\caption{Schéma des coordonnées horizontales $a$ et $z$}
+\label{fig:15}
+\end{figure}
+
+\bigskip
+
+\underline{Exercice :} Quel est la distance zénithale d'une étoile au couchant ?
+
+
+\chapter{Les coordonnées horaires}
+\section{Définition coordonnées horaires}
+
+Considérons la figure \ref{fig:16} sur laquelle on a placé l'équateur céleste. Le petit cercle de pôle $P$ passant par $A$ est le parallèle céleste. Le demi-grand cercle défini par $PA$ et venant couper l'équateur en $A"$ s'appelle le \textbf{cercle horaire}. Le cercle horaire permet de définir les coordonnées horaires :
+
+\textbf{L'angle horaire } $H$ du point $A$ est le côté $MA"$. Nous voyons qu'il correspond également à l'angle formé entre le \textbf{méridien} et le \textbf{cercle horaire}.
+
+La \textbf{déclinison} $\delta$ est le côté $A''A$. C'est la distance du parallèle à l'équateur.
+
+
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure16.pdf}
+\end{center}
+\caption{Coordonnées horaires $H$ et $\delta$}
+\label{fig:16}
+\end{figure}
+
+
+\section{Determination de la longitude d'un lieu}
+
+Les coordonnées horaires permettent de déterminer la longitude d'un lieu. Nous définissons pour cette application une sphère céleste centrée au centre de la Terre, et deux observateurs, ayant respectivement leurs zéniths en $G$ et en $S$. Nous pouvons donc définir les plans méridiens correspondant à ces deux observateurs.
+
+Or, nous avons défini la différence de longitude $\lambda_S - \lambda_G$ comme l'angle $\delta \lambda$ du dièdre formé par les deux méridiens.  Nous voyons aussi sur ce dessin qu'une même étoile $A$ sur la sphère céleste aura, pour l'observateur en $S$, un angle horaire $H_S$ et pour l'observateur en $G$, un angle horaire $H_G$. On a donc :
+
+\begin{center}
+\fbox{$H_G - H_S = \lambda_G - \lambda_S$} \ \mbox{quand les longitudes sont comptées positivement vers l'Est}
+\end{center}
+\bigskip
+
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure17.pdf}
+\end{center}
+\caption{Détermination de la longitude}
+\label{fig:17}
+\end{figure}
+
+
+\chapter{La sphère des fixes et coordonnées équatoriales}
+
+\section{Définition}
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure18.pdf}
+\end{center}
+\caption{La sphère des fixes}
+\label{fig:18}
+\end{figure}
+
+On décrit le mouvement apparent diurne des astres comme la roation de la sphère céleste locale dans ce qu'on appelle la \textbf{sphère des fixes} au sein de laquelle les étoiles sont immobiles. La rotation se fait autour de \textbf{l'axe du monde}, en un jour sidéral = $23^h56^m04^s$.
+
+Un astre se repère sur la sphère des fixes par ses \textbf{coordonnées équatoriales} :
+
+La \textbf{déclinaison} $\delta$ est la distance entre l'équateur céleste et l'astre $A$ et prend donc la même valeur que sur la sphère des fixes (on voit sur la figure que c'est bien le même angle).
+
+\textbf{L'ascension droite} $\alpha$  est la distance, sur l'équateur, entre un point de référence fixe ($\gamma$) que nous définirons plus loin (il s'agit du \textbf{point vernal}) et l'intersection du grand cercle $PA$ avec l'équateur. $\alpha$ est compté positivement vers l'EST. 
+
+Le passage des coordonnées équatoriales aux coordonnées horaires se fait en définissant le \textbf{temps sidéral local} ($T$). $T$ est \textbf{l'angle} (!) entre $M$ et $\gamma$, compté vers l'OUEST. 
+
+Comme la rotation de la Terre est régulière, $T$ est une fonction linéaire du temps. Il augmente de 360$^\circ$ en $23^h56^m04^s$. On voit alors que
+
+\begin{equation*}
+H+\alpha = T \Leftrightarrow H = T-\alpha
+\end{equation*}
+
+La valeur de $T$ à 0h Temps Universel est disponible dans les éphémérides publiées par les observatoires. Il existe par ailleurs des catalogues fournissant $\delta$ et $\alpha$ pour toutes les étoiles visibles (par exemple : le 'Sky Catalogue 2000.0'). La relation entre le temps sidéral local et le temps sidéral de Greenwich s'établit aisément :
+
+\begin{equation*}
+T_S - T_G = H_S - H_G = \lambda_S - \lambda_G
+\end{equation*}
+
+
+\section{Passage des coordonnées horizontales aux coordonnées horaires}
+
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure19.pdf}
+\end{center}
+\caption{Triangle sphérique permettant la transformation de coordonnée}
+\label{fig:19}
+\end{figure}
+
+
+Les deux systèmes de coordonnées sont liées par le triangle sphérique $PZA$. 
+
+$
+\left\{
+\begin{array}{lll}
+\cos z = \sin \delta \sin \varphi + \cos \delta \cos \varphi \cos H\\
+\displaystyle {\sin a \over \cos \delta} = {\sin z \over \sin H} \Rightarrow \sin z \sin a = \cos \delta \sin H
+\end{array}
+\right.
+$
+
+\bigskip
+
+et, dans l'autre sens:
+
+\bigskip
+
+
+$
+\left\{
+\begin{array}{lll}
+  \sin \delta =  \cos z  \sin \varphi  - \sin z \cos \varphi \cos a\\
+\cos \delta \sin H = \sin z \sin a
+\end{array}
+\right.
+$
+\bigskip
+
+\underline{Exercice} 
+Conaissant le temps sidéral local $T_S$ à 0$^h$ temps universel, la latitude $\varphi$ du lieu, et l'ascension droite $\alpha$ et la déclinaison $\delta$ d'une étoile, déterminer l'heure de son lever et de son coucher. 
+
+Données de l'exercice:
+\bigskip
+$
+\left\{
+\begin{array}{lll}
+T_S (O^h) = 0\\
+\varphi = 60^\circ\\
+\delta = 30^\circ\\
+\alpha = 180^\circ
+\end{array}
+\right.
+$
+
+\newpage
+\section{Astres sans lever et coucher \label{lever}}
+
+Un astre ayant $|\delta| > {\pi\over 2} - |\varphi|$ n'a plus de lever ni de coucher
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure20.pdf}
+\end{center}
+\caption{Cas particulier d'un astre sans lever ni coucher}
+\label{fig:20}
+\end{figure}
+
+
+
+dans l'hémisphère Nord, l'astre sera perpétuellement levé si $\delta > \displaystyle {\pi\over 2} - \varphi$ 
+
+\medskip
+
+\hspace*{85mm} et couché si $\delta < - \displaystyle ({\pi\over 2}-\varphi)$
+
+
+\bigskip
+
+dans l'hémisphère Sud, l'astre sera perpétuellement levé si $\delta < - \displaystyle (\varphi + {\pi\over 2})$ 
+
+\medskip
+
+\hspace*{83mm} et couché si $\delta >  \displaystyle \varphi + {\pi\over 2}$
+
+
+\chapter{Le mouvement apparent du soleil}
+
+
+\section{{Coordonnées écliptiques}} 
+Le plan de l'orbite terrestre autour du Soleil est le \textbf{plan de l'écliptique}. Par extension, l'écliptique désigne également le grand cercle décrit par la trajectoire du Soleil sur la sphère des fixes.  Ce nom vient du fait que les éclipses ne peuvent se produire que quand la Lune le traverse.
+
+\begin{figure}[ht]
+\begin{center}
+\psfig{figure=figure21.pdf}
+\end{center}
+\caption{Mouvement apparent du soleil sur l'écliptique}
+\label{fig:21}
+\end{figure}
+
+\bigskip
+
+
+Le \textbf{point vernal} ($\gamma$) est défini comme le n\oe ud ascendant du Soleil, où se croisent l'équateur céleste et l'éclitpique. Ce point correspond à l'équinoxe du printemps. La déclinaison du Soleil est alors de 0$^\circ$. 
+
+Les coordonnées écliptiques d'un astre sont la longitude ($l$) et la latitude céleste ($b$). Pour le Soleil, on a bien évidemment $b_\sun=0$. 
+
+L'angle entre l'équateur et l'écliptique est \textbf{l'obliquité} et vaut $\varepsilon = 23^\circ 27'$.
+
+\section{Les parallèles géographiques caractéristiques}
+\subsection{Cercles Polaires}
+
+Sachant que la déclinaison du Soleil est comprise entre $-\varepsilon$ et $+\varepsilon$, et en tenant compte de la discussion de la section \ref{lever}, on peut voir que pour les latitudes telles que 
+ $|\varphi| > |{\pi\over 2}- \varepsilon|=66^\circ 43$', le soleil va, au moins une fois au cours de l'année, ne pas se lever ou ne pas se coucher. On définit en conséquence  les parallèles géographiques   
+\begin{tabular}{lll}
+$\varphi = {\pi \over 2} - \varepsilon$ : cercle polaire arctique\\
+$\varphi = - {\pi \over 2} + \varepsilon$ : cercle polaire Antarctique
+\end{tabular}
+
+de  telle sorte qu'au delà de ces parallèles on connaît au moins une journée sans lever ni coucher de Soleil.
+\subsection{Tropiques}
+
+Par ailleurs, le soleil atteint le zénith lors de son passage au méridien lorsque $\varphi = \delta$. Cela est possible pour des latitudes comprises entre  $-\varepsilon$ et $+\varepsilon$. 
+
+ On définit en conséquence  les parallèles géographiques   
+\begin{tabular}{lll}
+$\varphi = - \varepsilon$ : le tropique du Capricorne \\
+$\varphi = + \varepsilon$ : le tropique du Cancer 
+\end{tabular}
+
+
+\section{La révolution du Soleil}
+
+
+
+La révolution du Soleil sur la sphère céleste s'accomplit en un peu plus d'une année julienne de 365,25 jours. En d'autres termes, la longitude écliptique du soleil ($l_\sun$) augmente de 360$^\circ$ en 365,25 jours, et, de même, l'ascension droite su soleil $\alpha_\sun$ augmente de 360$^\circ$ en 365,25 jours. 
+
+Chaque jour, $\alpha_\sun$ augmente d'\textbf{environ} $\frac{360^\circ}{365,25}=3^m56^s \equiv n$. 
+
+On peut donc écrire que: $\alpha_{\odot} = A_0 + A_1 t + C + R$ avec $A_1=n$
+
+\begin{tabular}{llp{15cm}}
+$C$ &:& terme désignant les inégalités de la vitesse de révolution dues au caractère elliptique de l'orbite  \\
+$R$ &:& {terme de ``réduction à l'équateur'' apparaissant lorsqu'on convertit les coordonnées écliptiques en coordonnées équatoriales}
+\end{tabular}
+
+\chapter{Le temps}
+\section{Temps solaire}
+Le \textbf{temps solaire vrai local} est, par définition, \textbf{l'angle} (!) horaire du centre du Soleil. On le note $H_\sun$. 
+
+On a donc: $H_{\odot} = T-\alpha_{0_\odot}$, où $\alpha_0$ est l'ascension droite du soleil et $T$, le temps sidéral local
+
+
+On peut noter
+$$
+\begin{array}{llll}
+\alpha_{0_\odot} = A_0 + A_1 t + C + R \\
+T = T_0 + T_1 t + \tau
+\end{array}
+$$
+où $\tau$ désigne de (très petites) inégalités dans la progression du temps sidéral vrai (donc, de la rotation de la Terre par rapport aux étoiles). 
+
+
+on a donc
+
+$$
+\begin{array}{llll}
+H_\odot = T_0-A_0 + (T_1-A_1) t - (C+R-\tau)\\
+H_\odot = \underbrace{H_0+(T_1-A_1) t}_{Hm} - E
+\end{array}
+$$
+où l'on a défini $E=C+R-\tau$ et $H_0=T_0-A_0$. 
+On nomme $H_m=H_0+(T_1-A_1) t$ le temps solaire moyen local. C'est une variable qui croit linéairement avec le temps $t$ de la mécanique. On a d'ailleurs historiquement d\'efini la seconde en \textbf{posant} $T_1-A_1=1$ jour moyen  = 24 heures légales. 
+
+
+La grandeur $E$ est \textbf{l'équation du temps}. On voit que $H_\sun = H_m - E$ : en d'autres termes, le temps solaire moyen est en avance de  $E$ sur le temps solaire vrai. L'écart peut atteindre 1/4 d'heure.
+
+
+Reprenons la d\'efinition du temps moyen. Nous avons pos\'e~:  $T_1 - A_1 =
+{\mbox{24 heures d'angle}\over \mbox{jour l\'egal}}$
+
+
+Hors, A$_1$, nous l'avons vu plus haut, est li\'e \`a l'ascension droite du soleil. En un an (approx. 365 jours), l'ascension droite du soleil augmente de $360^\circ$ ou encore 24h d'angle.  $A_1$ vaut donc approximativemnet.
+${\mbox{24 heures d'angle}\over \mbox{un an }}$, soit 
+${\mbox{3 min 56}\over \mbox{jour l\'egal }}$. 
+
+Nous avons donc: 
+
+$T_1 = {\mbox{24 heures + 3$^m$ 56'} \over \mbox{jour légal}}$
+
+En un jour légal, le temps sidéral s'accroît de $24^h3^m56^s$. En d'autres termes, $T$ fait une circonférence en $\frac{86400}{86636}$ jours moyens, soit $23^h56^m04^s$. C'est le jour sidéral que nous avons introduit dans le chapitre 5.
+
+\section{Le temps universel}
+
+A partir de 1925, le temps universel (T.U.) se définit comme le temps solaire moyen au méridien de Greenwich augmenté de 12 heures. Le temps légal est le temps universel augmenté d'un \textbf{fuseau horaire} choisi de façon à faire approximativement coïncider le \textbf{temps civil} ($H_m + 12H$) avec le temps légal.
+
+Pour rappel, on a $H_S-H_G=\lambda_S-\lambda_G$. La correction sera donc positive pour $\lambda_S > \lambda_G$, c'est-à-dire si $S$ est à l'Est de $G$. 
+
+
+\section{La définition de la seconde}
+Nous venos de voir que la seconde était initialement définie sur base du jour solaire moyen. C'est le plus commode car notre vie est rythmée par le lever et le coucher du soleil. Cependant, la définition du jour moyen fait intervenir l'équation du temps $E$ et en particulier le terme $\tau$, qui désigne les petites inégalités de la rotation de la Terre. Elles sont très difficiles à connaître et impossible à prédire car elle dépendent des très nombreux facteurs qui influencent la distribution de moment cinétique de la planète. 
+
+C'est pourquoi une définition précise nécessite un autre repère.
+En \textbf{1956} on a choisi la \textit{révolution} de la Terre autour du soleil comme horloge naturelle. la seconde était définie comme la fraction $\frac{1}{31556925,9747}$ de l'année tropique au 0 janvier 1900 (= 31 décembre 1899). L'année tropique est définie comme le temps pour lequel la longitude écliptique moyenne croît de 360$^\circ$. Ceci correspond approximativement au temps qui sépère deux passages à l'équinoxe de printemps. Approximativement car à nouveau, le mouvement est légèrement irrégulier mais il est en pratique possible de définir une révolution moyenne avec suffisement de précision pour les besoins de l'époque. 
+
+Aujourd'hui, nous avons une mesure du temps indépendante de l'astronomie, mais choisie de façon à correspondre aux anciennes définitions.
+
+A la treizieme conférence des poids et mesures (1967), la seconde a été définie comme 9192631770 périodes de la radiation correspondant à la transition entre les niveaux hyperfns $F=3$ et $F=4$ de l'état fondamental $^6 s_{1/2}$ de l'atome de Césium 133.  La mise en réseau d'horologes atomiques a permi d'aboutir à la réalisation d'un \textbf{temps universel coordonné (UTC)} qui sert aujourd'hui de référence. 
+
+En savoir plus le Bureau de l'Heure de l'Observatoire Royal de Belgique vous fournit des définitions plus détailles et plus précises: \\
+\noindent
+\url{http://www.observatoire.be/GENERAL/INFO/fri001.html} \\
+\url{http://www.astro.oma.be/D1/TIME/description_fr.php}
+
+\end{document}
+
+

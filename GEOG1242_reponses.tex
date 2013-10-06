@@ -1,0 +1,113 @@
+ \documentclass[12pt]{report}
+   
+
+ \renewcommand{\baselinestretch}{1.5}
+
+\textheight22cm
+\textwidth15cm
+\hoffset-20mm
+\voffset-25mm
+\oddsidemargin2.5cm
+\evensidemargin2.5cm
+\usepackage[french]{babel}
+\def\pa{\partial}    
+\def\sun{\odot}
+ 
+%%%%% \usepackage{amssymb}
+%\input{option_keys}
+%\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\def\tan{\mathrm{tg}}    
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex,bookmarks=true]{hyperref}
+\title{Geographie mathématique GEOG1242 : solution des exercices \\\small{Notes provisoires année 2007-2008}}
+\author{Michel Crucifix}
+
+\begin{document}
+
+\maketitle
+\underline{exercices}:  
+\flushleft{
+\begin{align*}
+1' &= 4 s \\
+1'' &= \frac{1}{15} s
+\label{}
+\end{align*}
+}
+
+\begin{equation*}
+\cos(a-a)=\cos^2a + \sin^2a = 1
+\end{equation*}
+
+ \textbf{ tabuler les valeurs de $\varphi-\varphi'$, pour des latitudes de 0,30$^\circ$, 45$^\circ$, 60$^\circ$, 90$^\circ$}.
+
+\begin{tabular}{l|l|l}
+$\varphi\ (\ ^\circ)$ & $\varphi' (\ ^\circ)$ &  $\varphi - \varphi' (\ ^\circ) $  \\
+\hline
+    0.00&   0.00 &  0.00 \\
+   15.00&  14.90 &  0.09 \\
+   30.00&  29.83 &  0.16 \\
+   45.00&  44.80 &  0.19 \\
+   60.00&  59.83 &  0.16 \\
+   75.00&  74.90 &  0.09 \\
+   90.00&  90.00 &  0.00 
+\end{tabular}
+
+La différence s'annule donc pour $0$ et $\pm90^\circ$ et est maximale pour $\pm45^\circ$.
+
+\bigskip
+
+\textbf{Que vaut l'orthodromie de deux points alignés sur un même méridien? }\\
+On a $\delta\lambda=0$ et donc $\cos c = \cos (\varphi_A-\varphi_B)$, et 
+ $c=| \varphi_A - \varphi_B|$.
+
+\textbf{ Le cap à suivre par un marin suivant l'orthodromie vaut: $2\pi-A$ au départ, et $B+\pi$ à l'arrivée (attention : c'est bien $B+\pi$ et non $B$ comme l'a fait remarquer un étudiant au cours). Déterminez $A$ et $B$ en utilisant les relations II.}
+
+On peut utiliser 
+
+\begin{equation*}
+\frac{\sin\delta\lambda}{\sin c}=\frac{\sin B}{\cos\varphi_A}=\frac{\sin A}{\cos\varphi_B}
+\end{equation*}
+
+Donc, par exemple : 
+
+\begin{equation*}
+\sin B=\frac{\sin\delta\lambda \cos\varphi_A}{\sin c},
+\end{equation*}
+
+\begin{equation*}
+B=\left\{
+\begin{split}
+\arcsin (\sin B) \\
+\pi-\arcsin (\sin B)
+\end{split}\right.
+\end{equation*}
+
+selon que la trajectoire est de l'Est vers l'Ouest, ou de l'Ouest vers l'Est. 
+
+\bigskip
+
+\textbf{
+Déterminer la loxodromie et l'orthodromie entre Paris et New York, en utilisant les coordonnées suivantes :}
+
+Paris : $48^\circ$ 48'N  et $2^\circ20'$E  ; New York : $43^\circ03'$N $77^\circ°36'$W
+
+Remarquons tout d'abord que $\varphi_A=48,8^\circ, \quad \varphi_B=43,05^\circ$ et $\delta\lambda=79,933^\circ$.
+\bigskip
+
+1) orthodromie : 
+
+On trouve $\cos c =  0.59776$ et, en prenant un rayon terrestre de 6380\,km, on a une distance orthodromique de 5934 km.
+
+2) loxodromie :
+
+On applique la formule 
+\begin{equation*}
+\tan\gamma = \frac{\delta \lambda}{ \left[\ln\left (\tan \ ({\pi\over 4} + \frac{\varphi}{2})\right)\right]^A_B }
+\end{equation*}
+
+Pour trouver : $\gamma=1.467\mathrm{rad} = 84^\circ$ et la longueur de la loxodromie (en prenant $R=6380$km) vaut 6216 km (nous avons considéré l'orthodromie depuis New-York vers Paris pour obtenir un angle $\gamma$ dans le premier quadrant). 
+
+\end{document}
