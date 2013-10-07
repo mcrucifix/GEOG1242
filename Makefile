@@ -14,7 +14,7 @@ GEOG1242.pdf : GEOG1242.tex \
 	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make GEOG1242.tex
 
 
-%.pdf: %.xp
+%.pdf: %.cpp
 	cd Figures; elaps -pdf `basename $<` ; cd ..
 
 make clean: 
