@@ -16,12 +16,12 @@ int main()
 
   P O=P(0.,0.,0.);
 
-  P A=sph(1,90,50);
-  P B=sph(1,0,90);
+  P A=sph(1,0,90);
+  P B=sph(1,90,50);
   P C=sph(1,30,40);
 
   P E_X=E_1;
-  P E_Z=A;
+  P E_Z=B;
   P E_Y=E_Z*E_X;
 
   arrow(O,E_X); arrow(O,E_Y); arrow(O,E_Z);
@@ -30,7 +30,7 @@ int main()
 
   label(A,P(5,5),"A");
   label(B,P(5,5),"B");
-  label(C,P(5,5),"C");
+  label(C,P(10,-2),"C");
 
   P C_1=C-(C|E_Z)*E_Z;
   P C_1x=C_1-(C_1|E_Y)*E_Y;  // attention : l'ordre du produit a de limportance
@@ -45,16 +45,16 @@ int main()
   line(C_1,C_1x);
   line(O,-E_Y);
   solid();
-  arc_measure(O,-E_Y,C_1);
-  label(P(0.05,-0.05,0.),P(0,0),"A");
+  arc_measure(O,E_Y,C_1);
+  label(P(0.05,-0.05,0.),P(32,0),"$(\\pi - B)$");
   
   right_angle(C_1,C-C_1,-C_1);
   right_angle(C_1x,-C_1x,C_1-C_1x);
 
-  label(E_X, P(-5,5), "$\\vec\{e_x\}$");
-  label(E_Y, P(5,0), "$\\vec\{e_y\}$");
-  label(E_Z, P(-5,7), "$\\vec\{e_z\}$");
-
-  pst_format();
+  label(E_X, P(-1,-8), "$\\vec{e_x}$");
+  label(E_Y, P(8,0), "$\\vec{e_y}$");
+  label(E_Z, P(5,-4), "$\\vec{e_z}$"); 
+ 
+ /* pst_format(); */
   end();
 }

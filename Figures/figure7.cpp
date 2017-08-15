@@ -16,8 +16,8 @@ int main()
 
   P O=P(0.,0.,0.);
 
-  P A=sph(1,90,50);
-  P B=sph(1,0,90);
+  P B=sph(1,90,50);
+  P A=sph(1,0,90);
   P C=sph(1,30,40);
 
   arrow(O,E_1); arrow(O,E_2); arrow(O,E_3);
@@ -26,10 +26,10 @@ int main()
 
   label(A,P(5,5),"A");
   label(B,P(5,5),"B");
-  label(C,P(5,5),"C");
+  label(C,P(10,-2),"C");
 
-  arc_measure(O,B,C); 
-  label (P(0.2,0.,0.2),P(0,0),"a");
+  arc_measure(O,A,C); 
+  label (P(0.2,0.,0.2),P(0,0),"b");
 
   P C_1=C-(C|E_3)*E_3;
   P C_1x=C_1-(C_1|E_2)*E_2;  // attention : l'ordre du produit a de limportance
@@ -44,16 +44,16 @@ int main()
 
   solid();
   arc_measure(O,E_2,C_1); 
-  label(P(0.2,0.2,0.),P(0,0),"B");
+  label(P(0.2,0.2,0.),P(0,0),"A");
 
-  label(E_1, P(-5,5), "$\\vec\{e_x\}$");
-  label(E_2, P(5,0), "$\\vec\{e_y\}$");
-  label(E_3, P(-5,7), "$\\vec\{e_z\}$");
+  label(E_1, P(-5,-5), "$\\vec{e_x}$");
+  label(E_2, P(8,0), "$\\vec{e_y}$");
+  label(E_3, P(-5,7), "$\\vec{e_z}$"); 
   
   right_angle(C_1,C-C_1,-C_1);
   right_angle(C_1x,-C_1x,C_1&P(0,1,0));
 
 
-  pst_format();
+/*  pst_format(); */
   end();
 }

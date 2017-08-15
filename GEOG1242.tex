@@ -262,17 +262,17 @@ Par ailleurs, des angles associés à ces sommets se définissent de la façon s
 \label{fig:7}
 \end{figure}
 
-Soit le triangle $ABC$. Alignons un repère orthonormal $\{\vec{e_x},\vec{e_y},\vec{e_z}\}$ sur $B$, telles que les coordonnées  $OB=\vec{e_z}$ et que le côté $C$ soit dans le plan $\{\vec{e_y}, \vec{e_z}\}$
+Soit le triangle $ABC$. Alignons un repère orthonormal $\{\vec{e_x},\vec{e_y},\vec{e_z}\}$ sur $A$, telles que les coordonnées  $OA=\vec{e_z}$ et que le côté $c$ soit dans le plan $\{\vec{e_y}, \vec{e_z}\}$
 
 Les coordonnées du point $C$ sont donc:
 \[
-(1) \left\{ \begin{array}{lll} x &=& \sin a \sin B\\
-y &=& \sin a \cos B \\
-z &=& \cos a \end{array}\right. \quad \mbox{ou encore}\ \vec C = x \vec{e_x} + y \vec{e_y} + z \vec{e_z}
+(1) \left\{ \begin{array}{lll} x &=& \sin b \sin A\\
+y &=& \sin b \cos A \\
+z &=& \cos b \end{array}\right. \quad \mbox{ou encore}\ \vec C = x \vec{e_x} + y \vec{e_y} + z \vec{e_z}
 \]
 
 
-Reprenons le même triangle, mais cette fois avec un repère $\{\vec{e_{x'}}, \vec{e_{y'}},\vec{e_{z'}}\}$ aligné sur $A$, toujours tel que $C$ soit compris dans le plan $\{\vec{e_{x'}},\vec{e_{z'}}\}$
+Reprenons le même triangle, mais cette fois avec un repère $\{\vec{e_{x'}}, \vec{e_{y'}},\vec{e_{z'}}\}$ aligné sur $B$, toujours tel que $c$ soit compris dans le plan $\{\vec{e_{y'}},\vec{e_{z'}}\}$.
 
 
 \bigskip\bigskip
@@ -290,9 +290,11 @@ Reprenons le même triangle, mais cette fois avec un repère $\{\vec{e_{x'}}, \v
 
 On trouve par un raisonnement analogue que les coordonnées $x',y',z'$ de $C$ sont égales à :
 \[
-(2) \left\{ \begin{array}{lll} x' &=& \sin b \sin A\\
-y' &=& -\sin b \cos A \\
-z' &=& \cos b \end{array}\right. \quad \mbox{ou encore}\ \vec C = x' \vec{e_{x'}} + y' \vec{e_{y'}} + z' \vec{e_{z'}}
+(2) \left\{ \begin{array}{lll} 
+x' &=& \sin a \sin(\pi - B) = \sin a \sin B\\
+y' &=& \sin a \cos(\pi - B) =  - \sin a \cos B\\
+z' &=& \cos a \end{array}\right. 
+\quad \mbox{ou encore}\ \vec C = x' \vec{e_{x'}} + y' \vec{e_{y'}} + z' \vec{e_{z'}}
 \]
 
 
@@ -303,7 +305,7 @@ z' &=& \cos b \end{array}\right. \quad \mbox{ou encore}\ \vec C = x' \vec{e_{x'}
 \begin{center}
 \psfig{figure=figure9.pdf}
 \end{center}
-\caption{Rotation du repère $\{\vec{e_x},\vec{e_y},\vec{e_x}\}$, autour de l'axe $\vec{e_x}$}
+\caption{Rotation du repère $\{\vec{e_x},\vec{e_y},\vec{e_z}\}$, autour de l'axe $\vec{e_x}$}
 \label{fig:9}
 \end{figure}
 \bigskip\bigskip
@@ -320,13 +322,13 @@ Par ailleurs, remarquons que
 notons que 
 \begin{eqnarray*}
 \vec {OC} &=& x' \vec{e_{x'}} + y' \vec{e_{y'}} + z' \vec{e_{z'}}\\
-&=& \vec{x'e_x} + y' \cdot \{\vec{e_y} \cos c - \vec{e_z} \sin c \} + z' \sin c \vec{e_y} + z' \cos c \vec{e_z} \\
-&=& \underbrace{x'}_x \qquad \vec{e_x} + \underbrace{\{y' \cos c + z' \sin c\}}_y \vec{e_y} + \underbrace{\{z' \cos c - x' \sin c\}}_z \vec {e_z}
+&=& \vec{x'e_x} + y' \cdot \{\vec{e_y} \cos c - \vec{e_z} \sin c \} + z' \sin c \ \vec{e_y} + z' \cos c \ \vec{e_z} \\
+&=& \underbrace{x'}_x \qquad \vec{e_x} + \underbrace{\{y' \cos c + z' \sin c\}}_y \vec{e_y} + \underbrace{\{z' \cos c - y' \sin c\}}_z \vec {e_z}
 \end{eqnarray*}
 
 
 on a donc $\left\{\begin{array}{lll} x=x'\\ y = y' \cos c + z' \sin c \\
-z = z' \cos c - x' \sin c \end{array}\right.$ 
+z = z' \cos c - y' \sin c \end{array}\right.$ 
 \bigskip
 
 et en remplaçant $x,y,z,x',y',z'$ par leurs valeurs dans (1) et (2), on trouve:
@@ -335,15 +337,30 @@ et en remplaçant $x,y,z,x',y',z'$ par leurs valeurs dans (1) et (2), on trouve:
 
 $\left\{\begin{array}{lll}
 \sin a \sin B = \sin b \sin A \\
-\sin a \cos B = -\sin b \cos A \cos c + \cos b \sin c \\
-\cos a = \cos b \cos c + \sin b \sin c \cos A
+\sin b \cos A = -\sin a \cos c \cos B + \cos a \sin c \\
+\cos b = \cos a \cos c + \sin a \sin c \cos B
 \end{array}
 \right.
 $
 
 \bigskip\bigskip
 
-Par permutation des lettres, on obtient deux systèmes de relations fondamentales:
+À partir ce des relations il est possible d'en créer bien d'autres.  Trois premiers groupes de relations
+s'obtiennent à partir des observations suivantes:
+
+\begin{lemma}
+Si le triangle de sommets $(A,B,C)$ et de côtés $(a,b,c)$ est un triangle sphérique, alors
+   le triangle de sommets $(B,C,A)$ et de côtés $(b,c,a)$ en est un \'egalement. 
+\end{lemma}
+
+\begin{lemma}
+Si le triangle de sommets $(A,B,C)$ et de côtés $(a,b,c)$ est un triangle sphérique, alors
+   le triangle de sommets $(B,A,C)$ et de côtés $(b,a,c)$ en est un \'egalement. 
+\end{lemma}
+
+
+Sur base des relations précédentes on 
+obtient alors trois systèmes de relations fondamentales:
 
 \bigskip
 
@@ -359,23 +376,41 @@ $
 \bigskip
 
 $II: \left\{ \begin{array}{lll} 
+
+
+
+\sin a \cos B = -\sin b \cos c \cos A + \cos b \sin c \\
+\sin a \cos C = -\sin c \cos b \cos A + \cos c \sin b \\
+
+\sin b \cos C = -\sin c \cos a \cos B + \cos c \sin a \\
+\sin b \cos A = -\sin a \cos c \cos B + \cos a \sin c \\
+
+\sin c \cos A = -\sin a \cos b \cos C + \cos a \sin b \\
+\sin c \cos B = -\sin c \cos a \cos C + \cos b \sin a \\
+
+\end{array} \right.
+$
+
+\bigskip
+
+$III: \left\{ \begin{array}{lll} 
 \cos a &=& \cos b \cos c + \sin b \sin c \cos A \\
 \cos b &=& \cos c \cos a + \sin c \sin a \cos B \\
 \cos c &=& \cos a \cos b + \sin a \sin b \cos C  \end{array} \right.
 $
 
 \bigskip
-Il est possible de créer un troisème système sur base des considérations suivantes. 
+Il est possible de créer un quatrième système sur base des considérations suivantes. 
 
-À chaque côté (disons: $a$, définit par $BC$), il est possible de faire correspondre un \emph{pôle} $A^\star$. Le pôle est le point de percée de l'axe (passant par le centre de la sphère) orthogonal au grand cercle décrit par $a$. Parmis les deux ôles possibles celui qui est retenu est choisi par application de la règle de la main droite, en allant de $B$ vers $C$. 
+À chaque côté (disons: $a$, défini par $BC$), il est possible de faire correspondre un \emph{pôle} $A^\star$. Le pôle est le point de percée de l'axe (passant par le centre de la sphère) orthogonal au grand cercle décrit par $a$. Parmis les deux pôles possibles celui qui est retenu est choisi par application de la règle de la main droite, en allant de $B$ vers $C$. 
 
 \begin{definition}
 Soit un triangle de côtés $a$,$b$,$c$, et de sommets $A$, $B$, $C$, et soit 
-$A^\star$ le pôle de $BC$, 
-$B^\star$ le pôle de $CA$ et
-$C^\star$ le pôle de $AB$.
+$A^\star$ le pôle de $a$, 
+$B^\star$ le pôle de $b$ et
+$C^\star$ le pôle de $c$.
 
-Le triangle définit par les sommets $A^\star$, $B^\star$, $C^\star$ est appelé le triangle conjugué de $ABC$.
+Le triangle défini par les sommets $A^\star$, $B^\star$, $C^\star$ est appelé le triangle conjugué de $ABC$.
 \end{definition}
 
 \begin{lemma}
@@ -390,7 +425,7 @@ On a alors les relations suivantes :
  c &=& \pi - C^\star
  \end{split}
  \right. 
- \end{equation*} & et & 
+ \end{equation*} & \text{et} & 
 \begin{equation}
 \left\{ 
 \begin{split}
@@ -402,18 +437,20 @@ On a alors les relations suivantes :
  \end{equation} \label{eq:conj} \end{tabular}
 \end{lemma}
 
-Ainsi, si on applique le bloc de relations $II$  au triangle $A^\star B^\star C^\star $ et que l'on réexprime
+Ainsi, si on applique le bloc de relations $III$  au triangle $A^\star B^\star C^\star $ et que l'on réexprime
 ensuite en fonction des côtes et sommets du triangle $ABC$ en utilisation les relations
-ci-dessus, on obtient un troisème groupe de relations:
+ci-dessus, on obtient un quatrième groupe de relations:
 
 \bigskip
-$III: \left\{ \begin{array}{lll} 
+$III^{\text{(bis)}}: \left\{ \begin{array}{lll} 
 \cos A &=& \sin B \sin C \cos a- \cos B \cos C \\
 \cos B &=& \sin C \sin A \cos b- \cos C \cos A \\
 \cos C &=& \sin A \sin B \cos c- \cos A \cos B  \end{array} \right.
 $
 
 \bigskip
+
+Dans la pratique, les groupes $I$ et $III$ sont les plus utiles. En effet on peut montrer que $II$ se déduit algébriquement de $I$ et $III$. Par ailleurs,  retenir $I$ est trivial, et comme $III^{\text{(bis)}}$ se déduit facilement de $III$, le seul réel effort de mémorisation concerne le groupe $III$.
 
 \chapter{L'orthodromie et la loxodromie}
 

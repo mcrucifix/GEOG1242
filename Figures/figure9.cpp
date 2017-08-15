@@ -30,18 +30,18 @@ begin();
  double alpha(0.12); // 
 
  P C=P(0,0);
- P Dx=polar(1,0);
+ P Dy=polar(1,0);
  P Dz=polar(1,0.25);
  P Dzz=polar(1,alpha);
- P Dxx=polar(1,alpha-0.25);
- P D=drop_perp(Dxx, C, Dx);
+ P Dyy=polar(1,alpha-0.25);
+ P D=drop_perp(Dyy, C, Dy);
 
- arrow(C,Dx,1.0);
+ arrow(C,Dy,1.0);
  arrow(C,Dz,1.0);
  arrow(C,Dzz,1.0);
- arrow(C,Dxx,1.0);
- line(D,Dxx);
- rangle(Dxx, Dx, D);
+ arrow(C,Dyy,1.0);
+ line(D,Dyy);
+ rangle(Dyy, Dy, D);
 
  font_size("footnotesize");
  arc_arrow(C,0.2,0,-alpha);
@@ -50,8 +50,8 @@ begin();
  //label(polar(0.9,alpha/2),P(-5,1),"sin$\\alpha$");
  label(polar(0.27,0.25-alpha/2),P(0,0),"c");
  label(polar(0.27,0.-alpha/2),P(0,0),"c");
- label(Dx,P(-5,-8),"$\\vec{e}_x$");
- label(Dxx,P(-12,3),"$\\vec{e}_{x'}$");
+ label(Dy,P(-5,-8),"$\\vec{e}_y$");
+ label(Dyy,P(-12,3),"$\\vec{e}_{y'}$");
  label(Dz,P(10,-5),"$\\vec{e}_z$");
  label(Dzz,P(5,-10),"$\\vec{e}_{z'}$");
 
